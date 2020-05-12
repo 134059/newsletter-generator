@@ -1,0 +1,10 @@
+mixin card(n)
+
+    div(class="card" id="card_"+n)
+        div(class="image_uploader")
+            input(type="file" class="image" id="image_"+n name="image_"+n form="cards_form" accept="image/*" title="Selezionare un'immagine" required=db_obj.isNew)
+            label(class="image_label" for="image_"+n) #{db_obj.isNew?"Clicca qui per selezionare un\'immagine":"Clicca qui per modificare l\'immagine"}
+                img(class="image_thumbnail" id="image_thumbnail_"+n src=db_obj.isNew?"":"/images/uploads/"+db_obj.id+"/"+db_obj.data[n-1].image alt="")
+        input(type="text" class="title" id="title_"+n name="title_"+n form="cards_form" placeholder="Titolo" autocomplete="off" required pattern="[a-zA-ZÀ-ú0-9][\u0020-\u0040a-zA-ZÀ-ú]{0,}" title="Non inserire caratteri speciali. Il titolo deve iniziare con un carattere alfanumerico (a-z, A-Z o 0-9)" value=db_obj.isNew?"":db_obj.data[n-1].title)
+        textarea(class="abstract" id="abstract_"+n name="abstract_"+n form="cards_form" placeholder="Abstract" required) #{db_obj.isNew?"":db_obj.data[n-1].abstract}
+        input(type="text" class="link" id="link_"+n name="link_"+n form="cards_form" placeholder="URL Link" autocomplete="off" required pattern="https://.+" title="Il link deve iniziare con https://" value=db_obj.isNew?"":db_obj.data[n-1].link)

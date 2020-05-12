@@ -1,0 +1,16 @@
+include partials/head.pug
+include partials/header.pug
+
+doctype html
+html(lang="it")
+    +head(title)
+    body
+        +header(title, subtitle)
+
+        section
+            iframe(class="card" id="preview_wrapper" src="/tmp/index.html")
+            div(class="action_wrapper")
+                form(action="/newsletter/"+newsletter.id+"/edit" method="POST")
+                    button(class="submit_button thin_button" type="submit") Modifica
+                form(action="/newsletter/"+newsletter.id+"/download" method="POST")
+                    button(class="submit_button thin_button" type="submit") Scarica ZIP

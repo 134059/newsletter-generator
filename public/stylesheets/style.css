@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
+
+body {
+    margin: 0;
+}
+
+*:focus {
+    outline-style: none;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 40px;
+    font-family: Montserrat, sans-serif;
+    text-align: center;
+}
+
+header * {
+    margin: 0;
+    cursor: default;
+    color: #000000;
+}
+
+header a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2 {
+    margin: 0 auto;
+    font-weight: normal;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0 60px;
+    font-family: Montserrat, sans-serif;
+}
+
+#index_form p {
+    text-align: center;
+}
+
+#template_selection {
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+}
+
+.submit_button {
+    display: flex;
+    justify-content: center;
+    margin: 20px 10px 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    height: 40px;
+    border: 1.5px solid #000000;
+    border-radius: 4px;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, transparent 0%, #000000 0%);
+    transition: background-size 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.submit_button:hover {
+    color: #FFFFFF;
+    background-size: 100% 100%;
+}
+
+.thin_button {
+    margin: 10px;
+    padding: 0 30px;
+}
+
+.newsletter_archive {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.table {
+    display: table;
+}
+
+.table_row_header, .table_row_data {
+    display: table-row;
+}
+
+.table_cell {
+    display: table-cell;
+    padding: 8px 6px;
+    vertical-align: middle;
+}
+
+.table p {
+    margin: 0;
+}
+
+.table_row_header p {
+    font-weight: 600;
+    padding: 0 6px;
+    border-bottom: solid .5px #444444;
+}
+
+.name_newsletter_date {
+    font-size: 10px;
+    color: #888888;
+}
+
+.name_newsletter_title, .date_newsletter_date {
+    color: #000000;
+    transition: color .2s ease;
+}
+
+.template {
+    text-align: center;
+}
+
+.tools {
+    width: 220px;
+}
+
+.tools form {
+    display: flex;
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.button_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action_wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.tools button {
+    padding: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, transparent 95%, #000000 0%);
+    transition: background-size 0.2s ease, color 0.2s ease;
+}
+
+.tools button:hover {
+    background-size: 100% 100%;
+}
+
+.table_row_data {
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.table_row_data {
+    transition: background-color .2s ease;
+    cursor: pointer;
+}
+
+.table_row_data:hover {
+    background-color: #EEEEEE;
+}
+
+.table_row_data:hover .name_newsletter_title, .table_row_data:hover .date_newsletter_date {
+    color: #3D98FF;
+}
+
+.table_row_data:hover .tools form {
+    opacity: 1;
+}
+
+#empty_db_message {
+    display: flex;
+    margin: 100px auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    font-family: Montserrat, sans-serif;
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 10px #B4B4B4;
+    transition: .4s;
+}
+
+#cards_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card .image {
+    width: 100%;
+    height: 140px;
+    opacity: 0;
+}
+
+.card .image_label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+    margin-top: -140px;
+    height: 140px;
+    font-size: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 4px;
+    background: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.2));
+}
+
+.card .image:hover, .card .image_label:hover {
+    cursor: pointer;
+}
+
+.card .image_thumbnail {
+    margin-top: -18px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 4px;
+}
+
+.card .title {
+    margin-bottom: 8px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card .abstract {
+    margin-bottom: 8px;
+    height: 120px;
+    font-size: 14px;
+    text-align: justify;
+    border: solid 1px #DDDDDD;
+    border-radius: 4px;
+    resize: none;
+    overflow: scroll;
+}
+
+.card .link {
+    font-size: 14px;
+}
+
+.card .title, .card .link {
+    border: none;
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.card .title, .card .abstract, .card .link {
+    font-family: Montserrat, sans-serif;
+    color: #444444;
+    background: transparent;
+    transition: border-bottom .2s ease, background .1s ease;
+}
+
+.card .title:focus:required:invalid, .card .link:focus:required:invalid {
+    border-bottom: solid 1px #FF6666;
+    background-image: linear-gradient(#FFFFFF, #FFF0F0);
+}
+
+.card .abstract:focus:required:invalid {
+    border: solid 1px #FF6666;
+    background: #FFF9F9;
+    border-radius: 4px;
+}
+
+.card .title:focus:required:valid, .card .link:focus:required:valid {
+    border-bottom: solid 1px #66CC66;
+    background-image: linear-gradient(#FFFFFF, #F0FFF0);
+}
+
+.card .abstract:focus:required:valid {
+    border: solid 1px #66CC66;
+    background: #F9FFF9;
+    border-radius: 4px;
+}
+
+#preview_wrapper {
+    margin: 10px auto;
+    padding: 4px 0;
+    width: 60%;
+    min-width: 680px;
+    height: 460px;
+    overflow: scroll;
+    background-color: #E0E0E0;
+    border: none;
+    border-radius: 6px;
+}
+
+.card:hover, #preview_wrapper:hover {
+    transform: scale(1.02);
+}
+
+#generate_link {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 700px) {
+    #preview_wrapper {
+        min-width: 200px;
+        max-width: 480px;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .tools {
+        width: 76px;
+    }
+
+    .button_wrapper {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}

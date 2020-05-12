@@ -1,0 +1,18 @@
+include partials/head.pug
+include partials/header.pug
+include partials/card.pug
+
+doctype html
+html(lang="it")
+    +head(title)
+    body
+        +header(title, subtitle)
+        section
+            form(id="cards_form" action=db_obj.isNew?"/newsletter/new/submit":"/newsletter/"+db_obj.id+"/edit/submit" method="POST" enctype="multipart/form-data")
+                div(id="cards_wrapper")
+                    - for (let i = 1; i <= db_obj.template; i++) {
+                        +card(i)
+                    - }
+                div(class="action_wrapper")
+                    button(class="submit_button thin_button" type="submit" value="Vedi Preview") Salva e Vedi Preview
+        script(type="text/javascript" id="card-js" data-template=db_obj.template src="/javascripts/card.js")

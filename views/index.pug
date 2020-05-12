@@ -1,0 +1,72 @@
+include partials/head.pug
+include partials/header.pug
+
+doctype html
+html(lang="it")
+    +head(title)
+    body
+        +header(title, subtitle)
+        section
+            form(id="index_form" action="newsletter/new" method="GET")
+                p Voglio creare una newsletter con template di 
+                    select(name="template" id="template_selection")
+                        option(value="1") 1 colonna
+                        option(value="3" selected) 3 colonne
+                    |  .
+                div(class="action_wrapper")
+                    button(class="submit_button thin_button" type="submit") Vai
+        section
+            if newsletters_archive.length
+                h2 Archivio
+                div(class="table newsletter_archive")
+                    div(class="table_row_header")
+                        p(class="table_cell name") Newsletter
+                        p(class="table_cell template") Template
+                        p(class="table_cell date") Ultima modifica
+                        p(class="table_cell tools")
+                    for newsletter in newsletters_archive
+                        a(class="table_row_data newsletter_link" href="newsletter/"+newsletter.id)
+                                div(class="table_cell name")
+                                    p(class="name_newsletter_title") Newsletter
+                                    p(class="name_newsletter_date") #{getFormattedDate(newsletter.createdAt)}
+                                div(class="table_cell template")
+                                    p(class="name_newsletter_title") #{newsletter.template}
+                                div(class="table_cell date")
+                                    p(class="date_newsletter_date") #{showUpdate(newsletter.createdAt, newsletter.updatedAt)}
+                                div(class="table_cell tools")
+                                    div(class="button_wrapper")
+                                        form(action="newsletter/"+newsletter.id+"/download" method="POST")
+                                            button(type="submit") Download
+                                        form(action="newsletter/"+newsletter.id+"/edit" method="POST")
+                                            button(type="submit") Modifica
+                                        form(action="newsletter/"+newsletter.id+"/delete" method="POST")
+                                            button(type="submit") Elimina
+            else
+                p(id="empty_db_message") Nessuna newsletter salvata nell'archivio
+
+
+-function getFormattedDate(dateString) {
+    -const monthNames = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"];
+    -let date = new Date(dateString);
+    -let today = new Date();
+    -let month = monthNames[date.getMonth()];
+    -let day = String(date.getDate());
+    -let year = date.getFullYear();
+    -let time = (date.getHours()<10?'0':'')+date.getHours()+":"+(date.getMinutes()<10?'0':'')+date.getMinutes();
+    -let specificDay = day+" "+month+" "+year;  
+    -let sameMonthAndYear = date.getMonth() == today.getMonth() && date.getFullYear() == today.getFullYear();
+    -if (date.getDate() == today.getDate() && sameMonthAndYear) {
+        - specificDay = "oggi";
+    -} else if (date.getDate() == today.getDate()-1 && sameMonthAndYear) {
+        - specificDay = "ieri";
+    -}
+    -return specificDay+", ore "+time;
+-}
+
+-function showUpdate(createdDate, updatedDate) {
+    -if (new Date(createdDate).getTime() === new Date(updatedDate).getTime()) {
+        - return "-";
+    - } else {
+        - return getFormattedDate(updatedDate);
+    - }
+-}

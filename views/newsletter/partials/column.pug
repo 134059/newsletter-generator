@@ -1,0 +1,35 @@
+mixin column(i, newsletter)
+    -//Column gets centered in case the chosen template is made of one column
+    - let alignment = 'left';
+    - if (newsletter.template == 1) {
+        - alignment = 'center'
+    -}
+    table.columnWrapper(align=alignment border='0' cellpadding='0' cellspacing='0' width='200')
+        tr
+            td.columnContainer(valign='top')
+                table.mcnCaptionBlock(border='0' cellpadding='0' cellspacing='0' width='100%')
+                    tbody.mcnCaptionBlockOuter
+                        tr
+                            td.mcnCaptionBlockInner(valign='top' style='padding:9px;')
+                                table.mcnCaptionBottomContent(align='left' border='0' cellpadding='0' cellspacing='0')
+                                    tbody
+                                        tr
+                                            td.mcnCaptionBottomImageContent(align='center' valign='top' style='padding:0 9px 9px 9px;')
+                                                img.mcnImage(alt='' src='images/uploads/'+newsletter.id+'/'+newsletter.data[i].image width='164' style='max-width:600px;')
+                                        tr
+                                            td.mcnTextContent(valign='top' style='padding: 0px 9px; line-height: 100%;' width='164')
+                                                div(style='min-height: 225px; text-align: center;')
+                                                    div(style='display:block; min-height:65px')
+                                                        span(style='font-size:14px')
+                                                            span(style=((i%2 == 0)?'color:#89bf3e':'color:#39b2b6'))
+                                                                strong #{newsletter.data[i].title}
+                                                    div(style='font-size:13px; min-height: 100px;') #{newsletter.data[i].abstract}
+                table.mcnButtonBlock(border='0' cellpadding='0' cellspacing='0' width='100%' style='min-width:100%;')
+                    tbody.mcnButtonBlockOuter
+                        tr
+                            td.mcnButtonBlockInner(style='padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;' valign='top' align='center')
+                                table.mcnButtonContentContainer(border='0' cellpadding='0' cellspacing='0' width='100%' style='border-collapse: separate !important;border-radius: 3px;background-color: #85C722;')
+                                    tbody
+                                        tr
+                                            td.mcnButtonContent(align='center' valign='middle' style='font-family: Arial; font-size: 16px; padding: 15px;')
+                                                a.mcnButton(title='LEGGI DI PIÙ' href=newsletter.data[i].link target='_blank' style='font-weight: normal;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;') LEGGI DI PI&Ugrave;

@@ -1,0 +1,26 @@
+{
+  "name": "newsletter-generator",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "if [[ $NODE_ENV == 'production' ]]; then node ./bin/www; else nodemon ./bin/www; fi"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-easy-zip": "^1.1.5",
+    "express-fileupload": "^1.1.6",
+    "fs-extra": "^9.0.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pg": "^7.18.2",
+    "pug": "^2.0.4",
+    "sequelize": "^5.21.5",
+    "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
